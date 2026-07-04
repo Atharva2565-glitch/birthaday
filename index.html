@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#0a0a1a" />
+  <title>Happy Birthday, Sofiya! 🎂</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ═══════════ LOADING SCREEN ═══════════ -->
+  <div id="loader" class="loader">
+    <div class="loader-inner">
+      <div class="loader-cake">
+        <div class="loader-candle"></div>
+        <div class="loader-candle"></div>
+        <div class="loader-candle"></div>
+        <div class="loader-flame"></div>
+        <div class="loader-flame"></div>
+        <div class="loader-flame"></div>
+        <div class="loader-layer loader-layer-3"></div>
+        <div class="loader-layer loader-layer-2"></div>
+        <div class="loader-layer loader-layer-1"></div>
+      </div>
+      <p class="loader-text">Preparing your surprise...</p>
+      <div class="loader-bar"><div class="loader-progress"></div></div>
+    </div>
+  </div>
+
+  <!-- ═══════════ FLOATING BALLOONS ═══════════ -->
+  <div id="balloons" class="balloons" aria-hidden="true"></div>
+
+  <!-- ═══════════ MUSIC TOGGLE ═══════════ -->
+  <button id="music-toggle" class="music-toggle" aria-label="Toggle music" title="Toggle music">
+    <span class="music-icon">🎵</span>
+  </button>
+
+  <!-- ═══════════ MAIN CONTENT ═══════════ -->
+  <main id="main-content" class="main-content hidden">
+
+    <!-- ── Welcome Screen ── -->
+    <section id="welcome" class="section section-welcome">
+      <div class="section-content">
+        <div class="welcome-sparkles" aria-hidden="true"></div>
+        <p class="welcome-eyebrow hidden-eyebrow">A special message for</p>
+        <h1 class="welcome-name" id="welcome-name">Happy Birthday!</h1>
+        <p class="welcome-subtitle" id="welcome-subtitle">Something special is waiting for you...</p>
+        <div class="welcome-photo-wrap visible" id="welcome-photo-wrap">
+          <img class="welcome-photo" id="welcome-photo" src="assets/photos/photo5.png" alt="Sofiya" />
+        </div>
+        <div id="lottie-welcome" class="lottie-welcome" aria-hidden="true"></div>
+        <button id="start-btn" class="btn-primary">
+          <span>Open Your Surprise ✨</span>
+        </button>
+      </div>
+      <div class="scroll-hint">
+        <span>Scroll down</span>
+        <div class="scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- ── Countdown ── -->
+    <section id="countdown" class="section section-countdown">
+      <div class="section-content">
+        <h2 class="section-title">Counting Down to Your Day</h2>
+        <div class="countdown-grid" id="countdown-grid">
+          <div class="countdown-item">
+            <span class="countdown-number" id="cd-days">00</span>
+            <span class="countdown-label">Days</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="cd-hours">00</span>
+            <span class="countdown-label">Hours</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="cd-minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+          </div>
+          <div class="countdown-item">
+            <span class="countdown-number" id="cd-seconds">00</span>
+            <span class="countdown-label">Seconds</span>
+          </div>
+        </div>
+        <p class="countdown-message" id="countdown-message"></p>
+      </div>
+    </section>
+
+    <!-- ── Birthday Cake ── -->
+    <section id="cake" class="section section-cake">
+      <div class="section-content">
+        <h2 class="section-title">Make a Wish!</h2>
+        <p class="section-subtitle" id="cake-subtitle">Click or blow on the candles to make them go out 🕯️</p>
+
+        <div class="cake-container" id="cake-container">
+          <div class="cake" id="birthday-cake">
+            <div class="cake-candles" id="cake-candles"></div>
+            <div class="cake-layer cake-layer-top">
+              <div class="cake-frosting"></div>
+            </div>
+            <div class="cake-layer cake-layer-middle"></div>
+            <div class="cake-layer cake-layer-bottom"></div>
+            <div class="cake-plate"></div>
+          </div>
+        </div>
+
+        <div class="cake-controls">
+          <button id="blow-btn" class="btn-secondary">
+            <span>🎤 Blow Candles</span>
+          </button>
+          <p class="cake-hint" id="cake-hint">Tap candles or use your microphone</p>
+        </div>
+
+        <div class="wish-made hidden" id="wish-made">
+          <p>✨ Your wish has been made! ✨</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Birthday Wishes ── -->
+    <section id="wishes" class="section section-wishes">
+      <div class="section-content">
+        <h2 class="section-title">Birthday Wishes</h2>
+        <div class="wishes-container">
+          <div class="wish-card" id="typed-wish">
+            <span class="wish-quote">"</span>
+            <p id="typed-text"></p>
+          </div>
+          <div class="wishes-dots" id="wishes-dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Inspirational Quotes ── -->
+    <section id="quotes" class="section section-quotes">
+      <div class="section-content">
+        <h2 class="section-title">Words For You</h2>
+        <div class="quotes-container">
+          <div class="quote-card" id="quote-card">
+            <p id="quote-text"></p>
+          </div>
+          <div class="quotes-dots" id="quotes-dots"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Photo Gallery ── -->
+    <section id="gallery" class="section section-gallery">
+      <div class="section-content">
+        <h2 class="section-title" id="gallery-title">Beautiful Memories 📸</h2>
+        <div class="gallery-grid" id="gallery-grid">
+          <div class="gallery-item" data-src="assets/photos/photo1.png" data-caption="That beautiful smile of yours ✨">
+            <img src="assets/photos/photo1.png" alt="That beautiful smile of yours" loading="lazy" />
+            <div class="gallery-caption">That beautiful smile of yours ✨</div>
+          </div>
+          <div class="gallery-item" data-src="assets/photos/photo2.png" data-caption="Lost in the tea gardens 🌿">
+            <img src="assets/photos/photo2.png" alt="Lost in the tea gardens" loading="lazy" />
+            <div class="gallery-caption">Lost in the tea gardens 🌿</div>
+          </div>
+          <div class="gallery-item" data-src="assets/photos/photo3.png" data-caption="Views that take your breath away 🏔️">
+            <img src="assets/photos/photo3.png" alt="Views that take your breath away" loading="lazy" />
+            <div class="gallery-caption">Views that take your breath away 🏔️</div>
+          </div>
+          <div class="gallery-item" data-src="assets/photos/photo4.png" data-caption="Peaceful moments in the mountains ☁️">
+            <img src="assets/photos/photo4.png" alt="Peaceful moments in the mountains" loading="lazy" />
+            <div class="gallery-caption">Peaceful moments in the mountains ☁️</div>
+          </div>
+          <div class="gallery-item" data-src="assets/photos/photo5.png" data-caption="Every moment with you is special 💫">
+            <img src="assets/photos/photo5.png" alt="Every moment with you is special" loading="lazy" />
+            <div class="gallery-caption">Every moment with you is special 💫</div>
+          </div>
+          <div class="gallery-item" data-src="assets/photos/photo6.png" data-caption="Golden hour, golden memories 🌅">
+            <img src="assets/photos/photo6.png" alt="Golden hour, golden memories" loading="lazy" />
+            <div class="gallery-caption">Golden hour, golden memories 🌅</div>
+          </div>
+          <div class="gallery-item" data-src="assets/photos/photo7.png" data-caption="Adventures on the open road 🛣️">
+            <img src="assets/photos/photo7.png" alt="Adventures on the open road" loading="lazy" />
+            <div class="gallery-caption">Adventures on the open road 🛣️</div>
+          </div>
+          <div class="gallery-item" data-src="assets/photos/photo8.png" data-caption="Joy in every adventure 🐘">
+            <img src="assets/photos/photo8.png" alt="Joy in every adventure" loading="lazy" />
+            <div class="gallery-caption">Joy in every adventure 🐘</div>
+          </div>
+          <div class="gallery-item" data-src="assets/photos/photo9.png" data-caption="Unforgettable moments together ❤️">
+            <img src="assets/photos/photo9.png" alt="Unforgettable moments together" loading="lazy" />
+            <div class="gallery-caption">Unforgettable moments together ❤️</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox hidden">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+      <img id="lightbox-img" src="" alt="" />
+      <p id="lightbox-caption"></p>
+    </div>
+
+    <!-- ── Memory Timeline ── -->
+    <section id="timeline" class="section section-timeline">
+      <div class="section-content">
+        <h2 class="section-title">Our Journey</h2>
+        <div class="timeline" id="timeline-container"></div>
+      </div>
+    </section>
+
+    <!-- ── Personal Letter ── -->
+    <section id="letters" class="section section-letters">
+      <div class="section-content">
+        <h2 class="section-title">A Letter For You</h2>
+        <p class="section-subtitle">Written with love, just for you 💌</p>
+        <button id="letter-btn" class="btn-primary letter-open-btn">
+          <span id="letter-btn-text">Read My Letter ❤️</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Letter Modal -->
+    <div id="letter-modal" class="letter-modal hidden">
+      <div class="letter-modal-backdrop"></div>
+      <div class="letter-modal-content">
+        <button class="letter-modal-close" id="letter-close" aria-label="Close">&times;</button>
+        <div class="letter-paper">
+          <h3 id="letter-modal-title"></h3>
+          <div id="letter-modal-body"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Gift Box ── -->
+    <section id="gift" class="section section-gift">
+      <div class="section-content">
+        <h2 class="section-title">A Gift For You</h2>
+        <p class="section-subtitle" id="gift-subtitle">Tap the box to unwrap your surprise 🎁</p>
+
+        <div class="gift-container" id="gift-container">
+          <div class="gift-box" id="gift-box">
+            <div class="gift-lid">
+              <div class="gift-bow">
+                <div class="gift-bow-loop gift-bow-left"></div>
+                <div class="gift-bow-loop gift-bow-right"></div>
+                <div class="gift-bow-center"></div>
+              </div>
+            </div>
+            <div class="gift-body">
+              <div class="gift-ribbon-v"></div>
+              <div class="gift-ribbon-h"></div>
+            </div>
+            <div class="gift-surprise hidden" id="gift-surprise">
+              <span class="gift-emoji" id="gift-emoji">💝</span>
+              <p id="gift-message"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Fireworks Finale ── -->
+    <section id="finale" class="section section-finale">
+      <canvas id="fireworks-canvas"></canvas>
+      <div class="section-content finale-content">
+        <h2 class="finale-title" id="finale-title">Happy Birthday!</h2>
+        <div class="finale-message" id="finale-message"></div>
+        <button id="replay-btn" class="btn-primary">
+          <span>🔄 Experience Again</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Audio -->
+  <audio id="bg-music" loop preload="auto"></audio>
+
+  <!-- Libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+
+  <!-- App -->
+  <script src="js/config.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
