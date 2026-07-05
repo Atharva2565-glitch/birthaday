@@ -146,6 +146,8 @@
       duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
+      prevent: (node) =>
+        node.closest?.("[data-lenis-prevent], .letter-modal, .letter-paper") != null,
     });
 
     if (hasGsap() && hasScrollTrigger()) {
@@ -738,31 +740,58 @@
   // ═══════════════════════════════════════
   //  LETTER
   // ═══════════════════════════════════════
+  function openLetter() {
+    const modal = document.getElementById("letter-modal");
+    const titleEl = document.getElementById("letter-modal-title");
+    const bodyEl = document.getElementById("letter-modal-body");
+
+    if (!cfg.letter || !modal || !titleEl || !bodyEl) return;
+
+    titleEl.textContent = "💌";
+    bodyEl.textContent = cfg.letter;
+    modal.classList.remove("hidden");
+    modal.setAttribute("aria-hidden", "false");
+
+    if (hasConfetti()) {
+      confetti({
+        particleCount: 50,
+        spread: 70,
+        origin: { y: 0.5 },
+        colors: [cfg.colors.primary, cfg.colors.accent],
+      });
+    }
+
+    if (lenis) lenis.stop();
+    document.body.classList.add("modal-open");
+  }
+
+  function closeLetter() {
+    const modal = document.getElementById("letter-modal");
+    if (!modal) return;
+
+    modal.classList.add("hidden");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("modal-open");
+    if (lenis) lenis.start();
+  }
+
   function initLetter() {
     const modal = document.getElementById("letter-modal");
     const letterBtn = document.getElementById("letter-btn");
 
     if (!cfg.letter || !letterBtn) return;
 
-    letterBtn.addEventListener("click", () => {
-      document.getElementById("letter-modal-title").textContent = `Dear ${cfg.name} 💌`;
-      document.getElementById("letter-modal-body").textContent = cfg.letter;
-      modal.classList.remove("hidden");
-
-      if (hasConfetti()) {
-        confetti({
-          particleCount: 50,
-          spread: 70,
-          origin: { y: 0.5 },
-          colors: [cfg.colors.primary, cfg.colors.accent],
-        });
-      }
-
-      if (lenis) lenis.stop();
+    letterBtn.addEventListener("click", (event) => {
+      event.preventDefault();
+      openLetter();
     });
 
     document.getElementById("letter-close").addEventListener("click", closeLetter);
     modal.querySelector(".letter-modal-backdrop").addEventListener("click", closeLetter);
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeLetter();
+    });
 
     if (hasGsap() && hasScrollTrigger()) {
       gsap.from("#letter-btn", {
@@ -775,32 +804,47 @@
     }
   }
 
-  function closeLetter() {
-    document.getElementById("letter-modal").classList.add("hidden");
-    if (lenis) lenis.start();
-  }
-
   // ═══════════════════════════════════════
   //  GIFT BOX
   // ═══════════════════════════════════════
   function initGift() {
     const box = document.getElementById("gift-box");
+    const surprise = document.getElementById("gift-surprise");
+
+    if (!box || !surprise) return;
+
     document.getElementById("gift-emoji").textContent = cfg.gift.emoji;
     document.getElementById("gift-message").textContent = cfg.gift.message;
 
     let opened = false;
-    box.addEventListener("click", () => {
-      if (opened) return;
-      opened = true;
 
+    const openGift = (event) => {
+      if (opened) return;
+      if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+
+      opened = true;
       box.classList.add("opened");
-      const surprise = document.getElementById("gift-surprise");
+      box.setAttribute("aria-expanded", "true");
       surprise.classList.remove("hidden");
       surprise.classList.add("visible");
 
       confettiBurst();
       setTimeout(confettiBurst, 500);
+    };
+
+    box.addEventListener("click", openGift);
+    box.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openGift(event);
+      }
     });
+    box.setAttribute("tabindex", "0");
+    box.setAttribute("role", "button");
+    box.setAttribute("aria-expanded", "false");
 
     if (hasGsap() && hasScrollTrigger()) {
       gsap.from(".gift-box", {

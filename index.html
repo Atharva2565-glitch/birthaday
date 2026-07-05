@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="theme-color" content="#0a0a1a" />
-  <title>Happy Birthday, Sofiya! 🎂</title>
+  <title>Happy Birthday, Soo! 🎂</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -54,7 +54,7 @@
         <h1 class="welcome-name" id="welcome-name">Happy Birthday!</h1>
         <p class="welcome-subtitle" id="welcome-subtitle">Something special is waiting for you...</p>
         <div class="welcome-photo-wrap visible" id="welcome-photo-wrap">
-          <img class="welcome-photo" id="welcome-photo" src="assets/photos/photo5.png" alt="Sofiya" />
+          <img class="welcome-photo" id="welcome-photo" src="assets/photos/photo5.png" alt="Soo" />
         </div>
         <div id="lottie-welcome" class="lottie-welcome" aria-hidden="true"></div>
         <button id="start-btn" class="btn-primary">
@@ -223,11 +223,11 @@
     </section>
 
     <!-- Letter Modal -->
-    <div id="letter-modal" class="letter-modal hidden">
+    <div id="letter-modal" class="letter-modal hidden" data-lenis-prevent aria-hidden="true">
       <div class="letter-modal-backdrop"></div>
       <div class="letter-modal-content">
         <button class="letter-modal-close" id="letter-close" aria-label="Close">&times;</button>
-        <div class="letter-paper">
+        <div class="letter-paper" data-lenis-prevent>
           <h3 id="letter-modal-title"></h3>
           <div id="letter-modal-body"></div>
         </div>

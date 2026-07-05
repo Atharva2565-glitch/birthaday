@@ -1,11 +1,11 @@
 /**
  * ═══════════════════════════════════════════════════════════
- *  PERSONALIZATION CONFIG — Sofiya's Birthday
+ *  PERSONALIZATION CONFIG — Soo's Birthday
  * ═══════════════════════════════════════════════════════════
  */
 const BIRTHDAY_CONFIG = {
   // ── Basic Info ──────────────────────────────────────────
-  name: "Sofiya",
+  name: "Soo",
   yourName: "Atharva",
   birthdayDate: "2026-08-11",
   age: 20,
@@ -26,11 +26,11 @@ const BIRTHDAY_CONFIG = {
     "Decorating your surprise...",
     "Adding a little magic...",
     "Almost ready...",
-    "Welcome, Sofiya ❤️",
+    "Welcome, Soo ❤️",
   ],
 
   // ── Welcome Screen ──────────────────────────────────────
-  welcomeTitle: "Happy Birthday, Sofiya! 🎉",
+  welcomeTitle: "Happy Birthday, Soo! 🎉",
   welcomeSubtitle:
     "Today is your day, and I hope it brings you endless smiles, happiness, and beautiful memories.",
   welcome: {
@@ -47,7 +47,7 @@ const BIRTHDAY_CONFIG = {
 
   // ── Birthday Wishes ─────────────────────────────────────
   wishes: [
-    "Happy Birthday, Sofiya! 🎂 Wishing you a day filled with love, laughter, and countless beautiful moments.",
+    "Happy Birthday, Soo! 🎂 Wishing you a day filled with love, laughter, and countless beautiful moments.",
     "May this new chapter of your life bring happiness, success, good health, and endless opportunities.",
     "Keep smiling because your smile makes the world a little brighter.",
     "May every dream you chase become a beautiful reality.",
@@ -55,7 +55,7 @@ const BIRTHDAY_CONFIG = {
     "May every sunrise bring new hope and every sunset leave you with beautiful memories.",
     "You deserve every bit of happiness this world has to offer.",
     "Never stop believing in yourself—you are stronger and more capable than you know.",
-    "Happy Birthday once again, Sofiya. May your life always be filled with peace, joy, and love.",
+    "Happy Birthday once again, Soo. May your life always be filled with peace, joy, and love.",
   ],
 
   // ── Inspirational Quotes ────────────────────────────────
@@ -110,27 +110,40 @@ const BIRTHDAY_CONFIG = {
   ],
 
   // ── Personal Letter ─────────────────────────────────────
-  letter: `Dear Sofiya,
+  letter: `Dear Soo ❤️,
 
-Happy Birthday! 🎉
+Happy Birthday!! 🎉🎂
 
-Today is all about celebrating the wonderful person you are.
+Finally, your special day is here!
 
-I sincerely hope this year brings you endless happiness, good health, success, and beautiful memories that stay with you forever.
+I just wanted to take a moment to wish you a birthday filled with genuine happiness, endless laughter, delicious cake, and beautiful surprises.
 
-Keep smiling, keep believing in yourself, and never stop chasing your dreams.
+You have a wonderful way of making conversations fun and bringing positive energy wherever you go. I truly hope your smile never fades.
 
-Life has so many wonderful surprises waiting for you, and I truly hope every one of them makes you happier than the last.
+May this year bless you with success in everything you do, good health, peace of mind, amazing opportunities, and countless unforgettable memories.
 
-Thank you for being the amazing person you are.
+Keep smiling.
+Keep believing in yourself.
+Keep chasing your dreams.
+Never let anything stop you from becoming the amazing person you're meant to be.
 
-Enjoy every moment of your special day, laugh a little louder, smile a little brighter, and make memories you'll cherish forever.
+Thank you for being exactly who you are.
 
-Happy Birthday once again.
+Enjoy every moment today.
+Take lots of pictures.
+Laugh a little louder.
+Smile a little brighter.
+And make this birthday one you'll always remember.
 
-Wishing you nothing but the very best.
+And yes...
+Today I'll let you win every argument. 😄❤️
+
+Happy Birthday once again, Soo!
+
+Wishing you nothing but happiness, success, and beautiful moments always.
 
 With Best Wishes,
+
 Atharva ❤️`,
   letterButton: "Read My Letter ❤️",
 
@@ -142,7 +155,7 @@ This website is a small surprise made especially for you.
 
 I hope it brings a smile to your face and makes your birthday a little more special.
 
-Happy Birthday, Sofiya! ❤️`,
+Happy Birthday, Soo! ❤️`,
     buttonText: "Open Your Surprise 🎁",
     emoji: "🎁",
   },
@@ -157,7 +170,7 @@ Happy Birthday, Sofiya! ❤️`,
 
   // ── Finale ──────────────────────────────────────────────
   finale: {
-    title: "Happy Birthday, Sofiya ❤️",
+    title: "Happy Birthday, Soo ❤️",
     message: `Thank you for taking this little birthday journey.
 
 I hope it made you smile, even if just for a moment.
@@ -166,7 +179,7 @@ May your heart always be filled with happiness, your dreams always find their wa
 
 Have an unforgettable birthday and an even more wonderful year ahead.
 
-Happy Birthday once again, Sofiya! 🎉🎂❤️
+Happy Birthday once again, Soo! 🎉🎂❤️
 
 — Atharva`,
   },
