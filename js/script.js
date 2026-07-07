@@ -245,6 +245,16 @@
       if (letterBtnText) letterBtnText.textContent = cfg.letterButton;
     }
 
+    if (cfg.timelineTitle) {
+      const timelineTitle = document.getElementById("timeline-title");
+      if (timelineTitle) timelineTitle.textContent = cfg.timelineTitle;
+    }
+
+    if (cfg.timelineSubtitle) {
+      const timelineSubtitle = document.getElementById("timeline-subtitle");
+      if (timelineSubtitle) timelineSubtitle.textContent = cfg.timelineSubtitle;
+    }
+
     if (cfg.welcomePhoto) {
       const wrap = document.getElementById("welcome-photo-wrap");
       const img = document.getElementById("welcome-photo");
@@ -698,41 +708,63 @@
   }
 
   // ═══════════════════════════════════════
-  //  MEMORY TIMELINE
+  //  MEMORY CARDS
   // ═══════════════════════════════════════
+  const MEMORY_ACCENTS = ["var(--primary)", "var(--secondary)", "var(--accent)"];
+
+  function toggleMemoryCard(card) {
+    const flipped = card.classList.toggle("flipped");
+    card.setAttribute("aria-pressed", flipped ? "true" : "false");
+  }
+
   function initTimeline() {
     const container = document.getElementById("timeline-container");
     const items = cfg.timeline || cfg.memories || [];
 
+    if (!container || !items.length) return;
+
+    const accents = MEMORY_ACCENTS;
+
     items.forEach((mem, i) => {
-      const item = document.createElement("div");
-      item.className = "timeline-item";
-      const step = String(i + 1).padStart(2, "0");
+      const card = document.createElement("button");
+      card.type = "button";
+      card.className = "memory-card";
+      card.style.setProperty("--card-accent", accents[i % accents.length]);
+      card.setAttribute("aria-pressed", "false");
+      card.setAttribute("aria-label", `Open memory: ${mem.title}`);
+
       const desc = mem.message || mem.description || "";
-      item.innerHTML = `
-        <div class="timeline-year">${mem.year || step}</div>
-        <div class="timeline-title">${mem.title}</div>
-        <div class="timeline-desc">${desc}</div>
+      const emoji = mem.emoji || mem.icon || "✨";
+
+      card.innerHTML = `
+        <div class="memory-card-inner">
+          <div class="memory-card-face memory-card-front">
+            <span class="memory-card-emoji" aria-hidden="true">${emoji}</span>
+            <span class="memory-card-label">${mem.title}</span>
+            <span class="memory-card-hint">tap to open</span>
+          </div>
+          <div class="memory-card-face memory-card-back">
+            <p class="memory-card-message">${desc}</p>
+          </div>
+        </div>
       `;
-      container.appendChild(item);
+
+      card.addEventListener("click", () => toggleMemoryCard(card));
+      container.appendChild(card);
     });
 
     if (hasGsap() && hasScrollTrigger()) {
-      gsap.to(".timeline-item", {
+      gsap.from(".memory-card", {
         scrollTrigger: {
           trigger: "#timeline",
           start: "top 70%",
         },
-        opacity: 1,
-        x: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-      });
-    } else {
-      document.querySelectorAll(".timeline-item").forEach((item) => {
-        item.style.opacity = "1";
-        item.style.transform = "none";
+        opacity: 0,
+        y: 40,
+        rotateY: -12,
+        duration: 0.7,
+        stagger: 0.12,
+        ease: "back.out(1.4)",
       });
     }
   }
@@ -1002,6 +1034,11 @@
       const surprise = document.getElementById("gift-surprise");
       surprise.classList.add("hidden");
       surprise.classList.remove("visible");
+
+      document.querySelectorAll(".memory-card.flipped").forEach((card) => {
+        card.classList.remove("flipped");
+        card.setAttribute("aria-pressed", "false");
+      });
     });
   }
 

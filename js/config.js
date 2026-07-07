@@ -85,27 +85,39 @@ const BIRTHDAY_CONFIG = {
     { src: "assets/photos/photo9.png", caption: "Unforgettable moments together ❤️" },
   ],
 
-  // ── Memory Timeline ─────────────────────────────────────
+  // ── Memory Cards (Little Chapters) ───────────────────────
+  timelineTitle: "Little Chapters",
+  timelineSubtitle: "Tap a card to flip it open ✨",
   timeline: [
     {
-      title: "A New Beginning",
-      message: "Every birthday marks the beginning of another wonderful chapter.",
+      emoji: "😄",
+      title: "That Laugh",
+      message: "Your laugh is contagious — the kind that makes ordinary days feel a little brighter.",
     },
     {
-      title: "Beautiful Moments",
-      message: "May today become one of your favorite memories.",
+      emoji: "💬",
+      title: "Our Chats",
+      message: "Every conversation with you feels easy, fun, and genuinely real. Never change that.",
     },
     {
-      title: "Keep Smiling",
-      message: "Your smile is one of the most beautiful things you can wear.",
+      emoji: "✨",
+      title: "Your Energy",
+      message: "You carry this calm confidence that makes everything around you feel lighter.",
     },
     {
-      title: "Dream Big",
-      message: "Believe in yourself because amazing things are waiting ahead.",
+      emoji: "🌟",
+      title: "That Smile",
+      message: "Honestly? Your smile is unfairly beautiful. I hope it never fades.",
     },
     {
-      title: "A Bright Future",
-      message: "May every step you take bring happiness, success, and peace.",
+      emoji: "🎯",
+      title: "Your Dreams",
+      message: "Keep chasing what you want — you're stronger and more capable than you know.",
+    },
+    {
+      emoji: "🎂",
+      title: "Today",
+      message: "Happy Birthday, Soo. This little website was made just for you. Enjoy every second of today. ❤️",
     },
   ],
 
