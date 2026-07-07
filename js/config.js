@@ -72,7 +72,7 @@ const BIRTHDAY_CONFIG = {
 
   // ── Photo Gallery ───────────────────────────────────────
   galleryTitle: "Beautiful Memories 📸",
-  welcomePhoto: "assets/photos/photo5.png",
+  welcomePhoto: "assets/photos/soo-welcome.png",
   photos: [
     { src: "assets/photos/photo1.png", caption: "That beautiful smile of yours ✨" },
     { src: "assets/photos/photo2.png", caption: "Lost in the tea gardens 🌿" },
