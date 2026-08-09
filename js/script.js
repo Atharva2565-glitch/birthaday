@@ -366,7 +366,8 @@
       hoursEl.textContent = String(hours).padStart(2, "0");
       minutesEl.textContent = String(minutes).padStart(2, "0");
       secondsEl.textContent = String(seconds).padStart(2, "0");
-      messageEl.textContent = `${days} days until ${cfg.name} turns ${cfg.age}!`;
+      const dayLabel = days === 1 ? "day" : "days";
+      messageEl.textContent = `${days} ${dayLabel} until ${cfg.name} turns ${cfg.age}!`;
     }
 
     update();
@@ -842,8 +843,9 @@
   function initGift() {
     const box = document.getElementById("gift-box");
     const surprise = document.getElementById("gift-surprise");
+    const container = document.getElementById("gift-container");
 
-    if (!box || !surprise) return;
+    if (!box || !surprise || !container) return;
 
     document.getElementById("gift-emoji").textContent = cfg.gift.emoji;
     document.getElementById("gift-message").textContent = cfg.gift.message;
@@ -859,6 +861,7 @@
 
       opened = true;
       box.classList.add("opened");
+      container.classList.add("gift-opened");
       box.setAttribute("aria-expanded", "true");
       surprise.classList.remove("hidden");
       surprise.classList.add("visible");
